@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import setups.Capabilities;
@@ -31,6 +30,10 @@ public class EnvironmentSettingsPage extends Capabilities {
     public static WebElement getServerCHNA(){
         return androidDriver.findElement(By.id("com.sonarworks.soundid.sdkdemo:id/btn_region_china"));
     }
+    public static WebElement getServerQA(){
+        return androidDriver.findElement(By.id("com.sonarworks.soundid.sdkapp:id/btn_open_qa"));
+    }
+
 
     public static WebElement getConnectionModeButton(){
         return androidDriver.findElement(By.id("com.sonarworks.soundid.sdkapp:id/btn_connection_mode"));

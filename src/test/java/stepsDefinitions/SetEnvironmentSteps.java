@@ -1,51 +1,58 @@
 package stepsDefinitions;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.EnvironmentSettingsPage;
+import pages.LoadingPage;
 import pages.MySoundidPage;
 import pages.WelcomePage;
-import setups.Capabilities;
 
-public class SetEnvironmentSteps extends Capabilities {
-    @Before({"@RunServer"})
-    public void setup()throws Exception{
-        preparation();
-    }
 
+public class SetEnvironmentSteps {
     @Given("^I am in Configure Environment page$")
-    public void iAmInConfigureEnvironmentPage() {
+    public static void iAmInConfigureEnvironmentPage() {
         EnvironmentSettingsPage.getLanguageButtonENG().isDisplayed();
         EnvironmentSettingsPage.getOpenSoundidDefaultThemeButton().isDisplayed();
     }
 
     @When("^I select English language$")
-    public void iSelectEnglishLanguage() {
+    public static void iSelectEnglishLanguage() {
         EnvironmentSettingsPage.getLanguageButtonENG().click();
     }
 
     @And("^I select Open SoundID default theme button$")
-    public void iSelectOpenSoundIDDefaultThemeButton() {
+    public static void iSelectOpenSoundIDDefaultThemeButton() {
         EnvironmentSettingsPage.getOpenSoundidDefaultThemeButton().click();
     }
     @And("^I select Get started button$")
-    public void iSelectGetStartedButton() {
+    public static void iSelectGetStartedButton() {
         WelcomePage.getGetStartedButton().click();
     }
     @Then("^I see My SoundID page$")
-    public void iSeeMySoundIDPage() {
+    public static void iSeeMySoundIDPage() {
        MySoundidPage.getCreateSoundidButton().isDisplayed();
     }
 
     @And("^the language is english$")
-    public void theLanguageIsEnglish() {
-        MySoundidPage.getNoSoundidProfileTetBanner().isDisplayed();
+    public static void theLanguageIsEnglish() {
+        MySoundidPage.getNoSoundidProfileYetBanner().isDisplayed();
     }
 
     @And("^I select Device mock button$")
-    public void iSelectDeviceMockButton() {
+    public static void iSelectDeviceMockButton() {
         EnvironmentSettingsPage.getDeviceMockButton().click();
+    }
+
+
+    @And("I select QA server")
+    public static void iSelectQAServer() {
+        EnvironmentSettingsPage.getServerQA().click();
+    }
+
+    @And("I see loading page for a couple of seconds")
+    public static void iSeeLoadingPageForACoupleOfSeconds(){
+        LoadingPage.getLoadingSoundIdLogo().isDisplayed();
+
     }
 }
