@@ -19,10 +19,8 @@ public class CreateSoundId {
         SetEnvironmentSteps.iSelectOpenSoundIDDefaultThemeButton();
         SetEnvironmentSteps.iSeeLoadingPageForACoupleOfSeconds();
         SetEnvironmentSteps.iSelectGetStartedButton();
+        BasePage.getOneEarbudInBoxDismissButton();
         BasePage.waitUntilErrorAppears("Headphones connected!");
-        //Allure.addAttachment(nameTest, new ByteArrayInputStream(((TakesScreenshot)androidDriver).getScreenshotAs(OutputType.BYTES)));
-
-
     }
 
     @And("I am in My SoundID page")
@@ -100,7 +98,7 @@ public class CreateSoundId {
 
     @And("I see the profile uploading")
     public void iSeeTheProfileUploading() {
-        MySoundidPage.getSoundIdToggleState("Uploading...").isDisplayed();
+       MySoundidPage.getSoundIdToggleState("Uploading...").isDisplayed();
     }
 
 
@@ -111,27 +109,16 @@ public class CreateSoundId {
 
     @And("I have created a SoundID")
     public void iHaveCreatedASoundID() {
-        iAmInMySoundIDPage();
-        noSoundIdShouldExist();
-        iSelectCreateSoundIDButton();
-        iSeeTheTutorialDescription(List<String>text);
-        for (String anObject : text) {
-            BasePage.getDescription(anObject).isDisplayed();
-        }
-        siSelectStartTestButton();
-        iChoseTrackAndContinue();
+        MySoundidPage.getCreateSoundidButton().click();
+        TutorialPage.getStartTestButton().click();
+        TrackPage.getTrackList("Cymatics").click();
+        TrackPage.getContinueButton().click();
         iDoThePreferenceTest();
-        iSeeTheProfileCreationPage();
-        iSeeTheProfileUploading();
-        iSeeSoundIDToggle();
-        theFirstTrackListAreVisibleAndTheSecondTrackListArNotVisible();
 
-
-
-
-
-
-
-
+    }
+    @When("I select Retake test button")
+    public void iSelectRetakeTestButton() {
+        MySoundidPage.getRetakeTestButton().isDisplayed();
+        MySoundidPage.getRetakeTestButton().click();
     }
 }

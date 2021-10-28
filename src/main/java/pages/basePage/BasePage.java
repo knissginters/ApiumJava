@@ -22,12 +22,14 @@ public class BasePage extends Capabilities {
     public static WebElement getDescription(String description){
         return androidDriver.findElement(By.xpath("//android.view.View[@text='" + description + "']"));
     }
+    public static WebElement getOneEarbudInBoxDismissButton(){
+        return androidDriver.findElement(By.xpath("//android.widget.Button[@text = 'Dismiss']"));
+    }
 
     public static void waitUntilErrorAppears(String desiredErrorMessage) {
         String errorMessage = getFadeInError().getText();
             while (!errorMessage.equals(desiredErrorMessage)) {
                 errorMessage = getFadeInError().getText();
-                //Allure.addAttachment("Console log: ",errorMessage);
                 androidDriver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
             }
     }
