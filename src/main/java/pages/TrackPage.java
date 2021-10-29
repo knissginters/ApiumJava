@@ -12,6 +12,11 @@ public class TrackPage extends Capabilities {
         return androidDriver.findElement(By.xpath("//android.widget.Button[@text='Continue']"));
     }
 
+    public static WebElement getPlayPauseButton(){
+        return androidDriver.findElement(By.xpath("//android.view.View[@resource-id='root']//android.widget.Image"));
+    }
+
+
 
 
 

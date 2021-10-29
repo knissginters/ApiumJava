@@ -13,7 +13,7 @@ public class TutorialPage extends Capabilities {
         return androidDriver.findElement(By.xpath("//android.widget.Button[@text='Start test']"));
     }
 
-//android.view.View[@text='Preference test']
-    //android.view.View[@text='Choose the sound you like']
-    //android.view.View[@text='Complete several sound comparisons.']
+
+
+
 }
