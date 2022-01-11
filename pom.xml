@@ -13,14 +13,11 @@
     </properties>
     <dependencies>
 
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit4</artifactId>
-            <version>2.15.0</version>
-            <scope>test</scope>
-        </dependency>
-
-
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-cucumber4-jvm</artifactId>
+                <version>2.17.0</version>
+            </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -36,19 +33,19 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>3.0.2</version>
+            <version>6.11.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>3.0.2</version>
+            <version>6.11.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>3.0.2</version>
+            <version>6.11.0</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
@@ -91,16 +88,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
-                    <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
                     </argLine>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.junit4.AllureJunit4</value>
-                        </property>
-                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>

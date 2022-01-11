@@ -1,4 +1,3 @@
-@RunServer
 Feature: Pause state
   Scenario: Track Page Pause State
     Given I have configured Mocked english Environment

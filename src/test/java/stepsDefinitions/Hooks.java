@@ -1,16 +1,16 @@
 package stepsDefinitions;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import setups.Capabilities;
 
 public class Hooks extends Capabilities {
-    @Before({"@RunServer"})
+    @Before()
     public void setup()throws Exception{
         preparation();
     }
 
 
-    @After({""})
+    @After()
     public void End(){
         stopServer();
     }

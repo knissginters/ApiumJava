@@ -16,7 +16,7 @@ public class Capabilities extends DesiredCapabilities {
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("platformVersion", getDeviceOsVersion());
         capabilities.setCapability("deviceName", getDeviceName());
-        capabilities.setCapability("appPackage", "com.sonarworks.soundid.sdkapp");
+        capabilities.setCapability("appPackage", "com.sonarworks.soundid.sdkapp.dev");
         capabilities.setCapability("appActivity", "com.sonarworks.soundid.sdkapp.MainActivity");
         service = AppiumDriverLocalService.buildDefaultService();
         service.start();
