@@ -39,7 +39,7 @@ public class PauseStateSteps {
             String PlayerState = TrackPage.getPlayPauseButton().getText();
             Assert.assertEquals(PlayerState, "play");
         } catch (AssertionError e) {
-            Assert.fail("Track is not paused");
+           Assert.fail("Track is not paused");
         }
     }
 
@@ -54,7 +54,7 @@ public class PauseStateSteps {
             String PlayerState = TrackPage.getPlayPauseButton().getText();
             Assert.assertEquals(PlayerState, "pause");
         } catch (AssertionError e) {
-            Assert.fail("Track is not played");
+           Assert.fail("Track is not played");
         }
         TrackPage.getContinueButton().click();
         PreferenceTestPage.getPauseButton().isDisplayed();

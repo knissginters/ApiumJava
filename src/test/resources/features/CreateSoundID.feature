@@ -1,4 +1,3 @@
-@RunServer
 Feature: Create SoundID
   Scenario: Do a Preference Test
     Given I have configured Mocked english Environment

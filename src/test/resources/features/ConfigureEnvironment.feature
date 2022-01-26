@@ -1,4 +1,3 @@
-@RunServer
 Feature: Configure Environment
   Scenario: English QA Environment
     Given I am in Configure Environment page
