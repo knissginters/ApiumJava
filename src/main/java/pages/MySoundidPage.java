@@ -14,29 +14,18 @@ public class MySoundidPage extends Capabilities {
     }
 
     public static WebElement getNoSoundidProfileYetBanner(){
-        return androidDriver.findElement(By.xpath("//android.view.View[@text='No SoundID profile yet']"));
+        return androidDriver.findElement(By.xpath("//android.widget.TextView[@text='No SoundID profile yet']"));
     }
 
-    public static WebElement getSoundIdToggle(){
-        return androidDriver.findElement(By.id("soundIdToggle-container"));
+    public static WebElement getSoundIdToggleState(){
+        return androidDriver.findElement(By.xpath("//*[@resource-id='soundIdToggle']"));
     }
-
-    public static WebElement getUploadingSpinner(){
-        return androidDriver.findElement(By.id("spin"));
+    public static WebElement getToggleTryText(){
+        return androidDriver.findElement(By.xpath("//android.widget.TextView[@text='Try out personalized sound']"));
     }
-
-    public static WebElement getUploadingBanner(){
-        return androidDriver.findElement(By.xpath("//*[contains(@text, 'Uploading profile...')]"));
+    public static WebElement getToggleTutorialText(){
+        return androidDriver.findElement(By.xpath("//android.widget.TextView[@text='Listen to some music and use the toggle below to experience the difference']"));
     }
-
-    public static WebElement getProfileUploadEarbudName(){
-        return androidDriver.findElement(By.xpath("//*[@text='1MORE ColorBuds 2']"));
-    }
-
-    public static WebElement getSoundIdToggleState(String state){
-        return androidDriver.findElement(By.xpath("//*[@resource-id='root']/*[@text='" + state + "']"));
-    }
-
 
 
 

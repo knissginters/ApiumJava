@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BasePage extends Capabilities {
     public static WebElement getFadeInError(){
-        return androidDriver.findElement(By.xpath("//android.view.View[@resource-id='fade-in']/android.view.View"));
+
+        return androidDriver.findElement(By.xpath("//android.view.View[@resource-id='fade-in']/android.widget.TextView"));
     }
 
     public static WebElement getExitButton(){
@@ -19,9 +20,7 @@ public class BasePage extends Capabilities {
         return androidDriver.findElement(By.xpath("//android.view.View[@text='SoundID']/preceding-sibling::android.view.View[1]"));
     }
 
-    public static WebElement getDescription(String description){
-        return androidDriver.findElement(By.xpath("//android.view.View[@text='" + description + "']"));
-    }
+
     public static WebElement getOneEarbudInBoxDismissButton(){
         return androidDriver.findElement(By.xpath("//android.widget.Button[@text = 'Dismiss']"));
     }

@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AppiumJava" />
         <module name="ApiumJava" />
+        <module name="AppiumJavaTests" />
       </profile>
     </annotationProcessing>
   </component>

@@ -7,8 +7,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
 public class Capabilities extends DesiredCapabilities {
-    protected static AndroidDriver androidDriver;
+    public static AndroidDriver androidDriver;
     private AppiumDriverLocalService service;
 
     protected void preparation() throws Exception {
@@ -77,5 +78,6 @@ public class Capabilities extends DesiredCapabilities {
             e.printStackTrace();
         }
     }
+
 
 }

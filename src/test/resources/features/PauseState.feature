@@ -14,7 +14,7 @@ Feature: Pause state
       | Lily Wire and Debby Lee Star|                         |
     And I play "Distorted guitars" Track
     And I set the SDK app to background for 3 seconds
-    Then I see the Track is paused
+    Then I see the "Distorted guitars" is paused
 
   Scenario: Preference Test Pause State
     Given I have configured Mocked english Environment

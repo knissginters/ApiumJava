@@ -12,16 +12,17 @@ public class PauseStateSteps {
     @When("I go to the track page")
     public void iGoToTheTrackPage() {
         MySoundidPage.getCreateSoundidButton().click();
-        assert TutorialPage.getStartTestButton().isDisplayed();
+        Assert.assertTrue(TutorialPage.getStartTestButton().isDisplayed());
         TutorialPage.getStartTestButton().click();
-        TrackPage.getContinueButton().isDisplayed();
     }
 
     @And("I play {string} Track")
     public void iPlayDistortedGuitarsTrack(String trackName) {
+
+        Assert.assertTrue(TrackPage.getContinueButton().isDisplayed());
         TrackPage.getTrackList(trackName).click();
         try {
-            String PlayerState = TrackPage.getPlayPauseButton().getText();
+            String PlayerState = TrackPage.getPlayPauseButton(trackName).getText();
             Assert.assertEquals(PlayerState, "pause");
         } catch (AssertionError e) {
             Assert.fail("Track is not played");
@@ -33,10 +34,10 @@ public class PauseStateSteps {
         Utils.setAppToBackground(Seconds);
     }
 
-    @Then("I see the Track is paused")
-    public void iSeeTheTrackIsPaused() {
+    @Then("I see the {string} is paused")
+    public void iSeeTheTrackIsPaused(String trackName) {
         try {
-            String PlayerState = TrackPage.getPlayPauseButton().getText();
+            String PlayerState = TrackPage.getPlayPauseButton(trackName).getText();
             Assert.assertEquals(PlayerState, "play");
         } catch (AssertionError e) {
            Assert.fail("Track is not paused");
@@ -48,10 +49,11 @@ public class PauseStateSteps {
         MySoundidPage.getCreateSoundidButton().click();
         TutorialPage.getStartTestButton().isDisplayed();
         TutorialPage.getStartTestButton().click();
+        Utils.wait(5);
         TrackPage.getContinueButton().isDisplayed();
         TrackPage.getTrackList("Electronic beats 1").click();
         try {
-            String PlayerState = TrackPage.getPlayPauseButton().getText();
+            String PlayerState = TrackPage.getPlayPauseButton("Electronic beats 1").getText();
             Assert.assertEquals(PlayerState, "pause");
         } catch (AssertionError e) {
            Assert.fail("Track is not played");
